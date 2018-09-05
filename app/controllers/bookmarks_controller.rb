@@ -15,8 +15,13 @@ class BookmarksController < ApplicationController
   def update
     bookmark = Bookmark.find_by(id: params[:id])
     if bookmark
+      user = bookmark.user
+      data = ['token']
+      data << user.bookmarks
       bookmark.index = params[:index]
+      bookmark.finished = params[:finished]
       bookmark.save
+      render json: data
     end
   end
 
@@ -24,6 +29,10 @@ class BookmarksController < ApplicationController
     bookmark = Bookmark.find_by(id: params[:id])
     if bookmark
       bookmark.destroy
+      user = bookmark.user
+      data = ['token']
+      data << user.bookmarks
+      render json: data
     end
   end
 
