@@ -12,7 +12,19 @@ class BookmarksController < ApplicationController
     )
   end
 
-  def edit
+  def update
+    bookmark = Bookmark.find_by(id: params[:id])
+    if bookmark
+      bookmark.index = params[:index]
+      bookmark.save
+    end
+  end
+
+  def destroy
+    bookmark = Bookmark.find_by(id: params[:id])
+    if bookmark
+      bookmark.destroy
+    end
   end
 
 end
