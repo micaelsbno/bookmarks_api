@@ -1,8 +1,17 @@
 class BookmarksController < ApplicationController
 
+  def index
+    user = User.find_by(id: params[:user_id])
+    if user
+      render json: user.bookmarks
+    else
+      render json: ['error']
+    end
+  end
+
   def create
-    Bookmark.create(
-      url: params[:url], 
+    if Bookmark.create(
+      url: params[:url],
       title: params[:title],
       folder: params[:folder],
       user_id: params[:user_id],
@@ -10,6 +19,15 @@ class BookmarksController < ApplicationController
       rating: 0,
       index: params[:index]
     )
+      user = User.find_by(id: params[:user_id])
+      data = ['token']
+      data << user.bookmarks
+      data << params[:user_id]
+      render json: data
+    else
+      render json: ['error']
+    end
+
   end
 
   def update
@@ -18,6 +36,7 @@ class BookmarksController < ApplicationController
       user = bookmark.user
       data = ['token']
       data << user.bookmarks
+      data << user.id
       bookmark.index = params[:index]
       bookmark.finished = params[:finished]
       bookmark.save

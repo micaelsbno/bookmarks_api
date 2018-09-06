@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       data = ['token']
       data << user.bookmarks
+      data << user.id
       render json: data
     else
       data = ['error']
