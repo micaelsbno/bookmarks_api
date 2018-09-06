@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     if user.save
       data = ['token']
       data << user.bookmarks
+      data << user.id
       render json: data
     else
       data = ['error']
