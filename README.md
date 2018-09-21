@@ -1,24 +1,16 @@
-# README
+![BB+ logo](https://raw.githubusercontent.com/micaelsbno/bookmarks_plus/master/build/images/bb_icon128.png "Logo Title")
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# BetterBookmarks+
 
-Things you may want to cover:
+Rails side of the Bookmarks manager.
 
-* Ruby version
+##### Tech Used
 
-* System dependencies
+Made with React, Rails for the Back-end, react-beautiful-dnd, Javascript, axios, styled-components, Google Chrome API.
 
-* Configuration
+### How to use
+Just an api deployed on heroku. No need to use now.
 
-* Database creation
+### Extensions
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Restructure database tables to allow folders to be reordered.
