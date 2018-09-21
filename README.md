@@ -2,7 +2,7 @@
 
 # BetterBookmarks+
 
-Rails side of the Bookmarks manager.
+Rails side of the Bookmarks manager. [Front-End repository](https://github.com/micaelsbno/bookmarks_plus)
 
 ##### Tech Used
 
